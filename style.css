@@ -1,0 +1,236 @@
+/* Colours, fonts and spacing: one place to change the whole look */
+:root {
+  --bg: #FFF8F9;          /* blush white page */
+  --text: #2B1A21;        /* deep plum-black text */
+  --muted: #5E4A52;       /* dates and secondary text */
+  --accent: #A8325E;      /* deep rose: buttons and links only */
+  --tint: #F9E4EA;        /* soft pink section background */
+  --line: #E9CFD8;        /* thin card outlines */
+  --space-s: 8px;
+  --space-m: 24px;
+  --space-l: 48px;
+  --heading: "Cormorant Garamond", Georgia, serif;
+  --body: "DM Sans", Arial, sans-serif;
+}
+
+/* Base elements */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: var(--heading); line-height: 1.15; margin: 0 0 var(--space-s); }
+h1 { font-size: clamp(48px, 7vw, 76px); font-weight: 600; }
+h2 { font-size: 40px; font-weight: 600; margin-bottom: var(--space-m); }
+h3 { font-size: 24px; font-weight: 700; }
+p { margin: 0 0 var(--space-s); max-width: 68ch; }
+ul { margin: 0 0 var(--space-s); padding-left: 20px; max-width: 68ch; }
+li { margin-bottom: var(--space-s); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--accent); }
+a:hover { color: var(--text); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+::selection { background: #F2C6D4; color: var(--text); }
+
+/* Navigation bar */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-s) var(--space-m);
+}
+.nav-name {
+  font-family: var(--heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+.nav-links li { margin: 0; }
+.nav-link { color: var(--text); text-decoration: none; padding: 10px 0; display: inline-block; }
+.nav-link:hover { color: var(--accent); }
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.button:hover { background: var(--text); border-color: var(--text); color: #FFFFFF; }
+.button-quiet { background: transparent; color: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-s); margin-top: var(--space-m); }
+
+/* Hero: name, goal and photo before scrolling */
+#hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: var(--space-l);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-l) var(--space-m);
+}
+#hero .status { font-size: 20px; font-weight: 500; margin-bottom: var(--space-m); }
+.portrait { border-radius: 8px; background: #FFFFFF; padding: 10px; border: 3px solid var(--line); }
+
+/* Page sections */
+.section { max-width: 1100px; margin: 0 auto; padding: var(--space-l) var(--space-m); }
+.section-tint { background: var(--tint); max-width: none; }
+.section-tint > * { max-width: 1052px; margin-left: auto; margin-right: auto; }
+.section-tint > .grid { margin-bottom: var(--space-m); }
+.meta { color: var(--muted); font-size: 15px; }
+.aside { margin-top: var(--space-m); }
+.plain-list { list-style: none; padding: 0; }
+.plain-list li { margin-bottom: 12px; }
+.plain-list .meta { display: block; }
+
+/* At a glance: four highlights under the intro */
+#glance { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-m); }
+.glance {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-m);
+  list-style: none;
+  max-width: none;
+  margin: 0;
+  padding: var(--space-m) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.glance li { margin: 0; }
+.glance strong { display: block; font-family: var(--heading); font-size: 24px; line-height: 1.2; margin-bottom: 4px; }
+.glance span { display: block; color: var(--muted); font-size: 15px; line-height: 1.45; }
+
+/* Cards: experience, projects and beyond work */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-m);
+}
+.card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: var(--space-m);
+}
+.card { transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card-wide { grid-column: 1 / -1; }
+.verticals { padding-left: 40px; }
+.card img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 4px;
+  margin-bottom: var(--space-m);
+}
+.card .meta { margin-bottom: 12px; }
+.card .full { max-height: none; object-fit: contain; }
+.thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-s); margin: calc(-1 * var(--space-s)) 0 var(--space-m); }
+.thumbs img { margin: 0; aspect-ratio: 1 / 1; }
+
+/* Art gallery: four more pieces */
+.gallery-title { margin-top: var(--space-l); }
+.gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-m); }
+.gallery figure { margin: 0; }
+.gallery img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: #FFFFFF; border-radius: 4px; padding: var(--space-s); }
+.gallery figcaption { color: var(--muted); font-size: 15px; margin-top: var(--space-s); }
+
+/* Paper resume: a white A4-style sheet */
+#resume {
+  background: #FFFFFF;
+  color: #1A1A1A;
+  max-width: 820px;
+  margin-top: var(--space-m);
+  padding: 40px 48px;
+  border: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.45;
+}
+#resume h2 { font-size: 32px; margin-bottom: 4px; }
+#resume h3 {
+  font-family: var(--body);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #CCCCCC;
+  padding-bottom: 2px;
+  margin: 16px 0 6px;
+}
+#resume p, #resume ul { max-width: none; margin-bottom: 4px; }
+#resume li { margin-bottom: 2px; }
+.sheet-head p { margin-bottom: 4px; }
+.entry { margin-bottom: 6px; }
+.entry-head { display: flex; justify-content: space-between; gap: var(--space-m); }
+.entry-head span:last-child { color: #444444; white-space: nowrap; }
+
+/* Small screens: under 700px */
+@media (max-width: 700px) {
+  body { font-size: 16px; }
+  .nav { flex-wrap: wrap; padding: var(--space-s) 16px; gap: 0 var(--space-m); }
+  .nav-links { flex-wrap: wrap; gap: 0 16px; }
+  #hero { grid-template-columns: 1fr; padding: var(--space-m) 16px; gap: var(--space-m); }
+  .portrait { max-width: 280px; }
+  .section { padding: var(--space-l) 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .glance, .gallery { grid-template-columns: 1fr 1fr; }
+  #glance { padding: 0 16px; }
+  h2 { font-size: 34px; }
+  #resume { padding: var(--space-m) 16px; }
+  .entry-head { flex-direction: column; gap: 0; }
+}
+
+/* Print: only the paper resume, one A4 page, black on white */
+@media print {
+  @page { size: A4; margin: 10mm 12mm; }
+  body { background: #FFFFFF; color: #000000; font-size: 10pt; }
+  .site-header, #hero, #glance, #experience, #projects, #education, #beyond, #skills, #contact,
+  #resume-area > h2, #resume-area > p { display: none; }
+  #resume-area { padding: 0; margin: 0; max-width: none; }
+  #resume { border: none; padding: 0; margin: 0; max-width: none; font-size: 9pt; line-height: 1.3; color: #000000; }
+  #resume h2 { font-size: 22pt; }
+  #resume h3 { font-size: 9pt; margin: 7px 0 3px; border-color: #000000; }
+  #resume li { margin-bottom: 1px; }
+  .entry-head span:last-child { color: #000000; }
+  a { color: #000000; text-decoration: none; }
+}
+
+/* Turn off motion for people who ask for less */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .button, .card { transition: none; }
+}
