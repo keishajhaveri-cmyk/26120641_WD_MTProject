@@ -216,15 +216,15 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 /* Print: only the paper resume, one A4 page, black on white */
 @media print {
-  @page { size: A4; margin: 10mm 12mm; }
+  @page { size: A4; margin: 12mm 14mm; }
   body { background: #FFFFFF; color: #000000; font-size: 10pt; }
   .site-header, #hero, #glance, #experience, #projects, #education, #beyond, #skills, #contact,
   #resume-area > h2, #resume-area > p { display: none; }
   #resume-area { padding: 0; margin: 0; max-width: none; }
-  #resume { border: none; padding: 0; margin: 0; max-width: none; font-size: 9pt; line-height: 1.3; color: #000000; }
-  #resume h2 { font-size: 22pt; }
-  #resume h3 { font-size: 9pt; margin: 7px 0 3px; border-color: #000000; }
-  #resume li { margin-bottom: 1px; }
+  #resume { font-family: Arial, sans-serif; border: none; padding: 0; margin: 0; max-width: none; font-size: 9.5pt; line-height: 1.38; color: #000000; }
+  #resume h2 { font-size: 24pt; margin-bottom: 4px; }
+  #resume h3 { font-size: 9.5pt; margin: 10px 0 4px; border-color: #000000; }
+  #resume li { margin-bottom: 2px; }
   .entry-head span:last-child { color: #000000; }
   a { color: #000000; text-decoration: none; }
 }
